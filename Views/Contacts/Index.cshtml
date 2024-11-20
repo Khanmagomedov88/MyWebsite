@@ -1,0 +1,27 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Обратная связь";
+}
+
+<h1>Обратная связь с разработчиком</h1>
+
+<form method="post" asp-controller="Contacts" asp-action="Check">
+    <label asp-for="Name"></label>
+    <Input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+
+    <label asp-for="Age"></label>
+    <Input asp-for="Age" />
+    <span asp-validation-for="Age"></span>
+
+    <label asp-for="Email"></label>
+    <Input asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+
+    <label asp-for="Message"></label>
+    <Input asp-for="Message" />
+    <span asp-validation-for="Message"></span>
+
+    <input type="submit" value="Отправить" />
+</form>
+

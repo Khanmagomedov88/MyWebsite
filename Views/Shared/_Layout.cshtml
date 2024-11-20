@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <span class="logo">Kh</span>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="/Contacts">Обратная связь</a>
+            <a href="/Cars/List">Список машин</a>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+    <footer>2024 © Khanmagomedov | Все права защищены</footer>
+    <script scr="~/js/bootstrap.min.js"></script>
+</body>
+</html>

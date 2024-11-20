@@ -1,0 +1,159 @@
+/* Общие стили для всей страницы */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2b2b2b; /* Тёмно-серый фон страницы */
+    color: #e0e0e0; /* Светло-серый текст */
+}
+
+.content {
+    min-height: 100%; /* Устанавливаем минимальную высоту */
+    padding-bottom: 50px; /* Задаем отступ под футер */
+    box-sizing: border-box; /* Учитываем padding в расчете размера */
+}
+
+/* Стили для заголовка (header) */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #3a3a3a;
+    border-bottom: 3px solid #ff8c42;
+    color: #fff;
+}
+
+/* заголовок */
+h1 {
+    text-align: center;
+    color: #e0e0e0; /* Цвет заголовка */
+    font-family: Arial, sans-serif;
+    margin-bottom: 20px;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #fff;
+}
+
+
+/* Стили для навигационного меню */
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+    /* Ссылки в навигации */
+    nav a {
+        color: #e0e0e0; /* Светло-серый цвет ссылок */
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 1.1em;
+        padding: 5px 10px;
+        border-bottom: 2px solid transparent;
+        transition: color 0.3s, background-color 0.3s;
+        border-radius: 8px;
+    }
+
+        /* Эффект наведения */
+        nav a:hover {
+            color: #ff8c42; /* Оранжевый цвет текста при наведении */
+            border-bottom: 2px solid #ff8c42; /* Подчёркивание оранжевой линией */
+        }
+
+
+/* Основная часть */
+main {
+    padding: 20px;
+    background-color: #3f3f3f; /* Средне-серый фон main */
+    margin: 20px auto;
+    max-width: 100%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    color: #e0e0e0; /* Светло-серый цвет текста */
+}
+
+/* Стили для футера */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #3a3a3a;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #ff8c42;
+    border-bottom: 1px solid #ff8c42;
+    color: #b3b3b3;
+}
+
+/* Основной стиль формы */
+form {
+    max-width: 550px;
+    margin: auto;
+    padding: 20px;
+    background-color: #1e1e2f; /* Тёмный фон формы */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #f5f5f5; /* Светлый текст */
+    font-family: Arial, sans-serif;
+}
+
+    /* Стиль для всех полей ввода */
+    form label {
+        display: block;
+        margin-top: 15px;
+        font-weight: bold;
+        color: #cfcfcf;
+    }
+
+    form input[type="text"],
+    form input[type="email"],
+    form input[type="number"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-top: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #2e2e40; /* Темное поле ввода */
+        color: #f5f5f5;
+    }
+
+        form input[type="text"]:focus,
+        form input[type="email"]:focus,
+        form input[type="number"]:focus {
+            outline: none;
+            border: 1px solid #ff8c42; /* Оранжевая рамка при фокусе */
+            box-shadow: 0 0 5px rgba(255, 140, 66, 0.5);
+        }
+
+    /* Стиль сообщений об ошибках валидации */
+    form span {
+        color: #ff6b6b; /* Красный цвет для ошибок */
+        font-size: 0.9em;
+    }
+
+    /* Стиль для кнопки отправки */
+    form input[type="submit"] {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        margin-top: 20px;
+        background-color: #ff8c42; /* Оранжевая кнопка */
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        form input[type="submit"]:hover {
+            background-color: #e6762b; /* Более тёмный оттенок при наведении */
+        }
+
+

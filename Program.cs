@@ -1,0 +1,34 @@
+using WebsiteKh.interfaces;
+using WebsiteKh.mocks;
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddTransient<IAllCars, MockCars>(); // Добавление зависимости
+builder.Services.AddTransient<ICarsCategory, MockCategory>(); // Добавление зависимости
+builder.Services.AddMvc();
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();
