@@ -20,10 +20,16 @@ namespace WebsiteKh.Controllers
         {
             CarsListViewModel model = new CarsListViewModel();
             ViewBag.Title = "Список автомобилей";
-            model.allCars = _allCars.Cars;
+
+            var cars = _allCars.Cars.ToList();
+            Console.WriteLine($"Количество автомобилей в репозитории: {cars.Count}");
+
+            model.allCars = cars;
             model.currCategory = "Автомобили";
+
             return View(model);
         }
+
 
         public IActionResult Index()
         {

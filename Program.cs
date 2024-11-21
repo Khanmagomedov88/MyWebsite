@@ -1,16 +1,34 @@
+using Microsoft.EntityFrameworkCore;
+using WebsiteKh.Data;
+using WebsiteKh.Data.Repository;
 using WebsiteKh.interfaces;
-using WebsiteKh.mocks;
+ 
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddTransient<IAllCars, MockCars>(); // Добавление зависимости
-builder.Services.AddTransient<ICarsCategory, MockCategory>(); // Добавление зависимости
+
+builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)  // Задаем базовый путь
+    .AddJsonFile("dbSettings.json", optional: false, reloadOnChange: true);  // Загружаем настройки из JSON файла
+
+builder.Services.AddDbContext<AppDBContent>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+
+builder.Services.AddTransient<IAllCars, CarRepository>(); // Добавление зависимости
+builder.Services.AddTransient<ICarsCategory, CategoryRepository>(); // Добавление зависимости
 builder.Services.AddMvc();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope()) // Создаем область для работы с сервисами
+{
+    var content = scope.ServiceProvider.GetRequiredService<AppDBContent>();
+
+    DBObjects.Initial(content); // Инициализация данных в базе данных
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
